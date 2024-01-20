@@ -2,14 +2,15 @@ const User = require('../models/User');
 const Blog = require('../models/Blog');
 const bcrypt = require('bcrypt');
 const JWT = require('jsonwebtoken');
-const Comment = require('../models/Comment');
-const Like = require('../models/Like');
+
 const { uploadImageToCloudinary } = require("../utils/ImageUploader");
 
 const registerController = async (req, res) => {
+    // console.log("hello");
     try {
 
         const { firstName, lastName, accountType = "User", userId, email, password } = req.body;
+       
 
         const userIdInUse = await User.findOne({ userId });
         if (userIdInUse) {

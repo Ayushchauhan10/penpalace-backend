@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-        maxLength: 15,
+        maxLength: 25,
     },
     password: {
         type: String,

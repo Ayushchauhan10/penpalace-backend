@@ -11,7 +11,7 @@ const createBlogController = async (req, res) => {
         const { title, category, thumbnail, shortDescription, longDescription } = req.body;
         const author = req.user.id;
         const blog = await Blog.create({ title, category, thumbnail, shortDescription, longDescription, author });
-
+        console.log("hi");
         await User.findByIdAndUpdate(
             req.user.id,
             { $push: { blog: blog._id } });

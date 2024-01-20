@@ -37,7 +37,12 @@ const dislikeController = async (req, res) => {
         const { blogId } = req.body;
         const likeBy = req.user.id;
         const like = await Like.findOne({ blog: blogId, likeBy });
+        console.log(like)
         const likeId = like.id;
+
+        
+        console.log("11111");
+        console.log(likeId);
         await Like.findByIdAndDelete(likeId);
 
         await User.findByIdAndUpdate(likeBy, { $pull: { likes: likeId } });

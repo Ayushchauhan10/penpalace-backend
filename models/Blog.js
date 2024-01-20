@@ -9,7 +9,7 @@ const blogSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true,
-        maxLength: 15,
+        maxLength: 60,
     },
     thumbnail: {
         type: String,
@@ -18,12 +18,10 @@ const blogSchema = new mongoose.Schema({
     shortDescription: {
         type: String,
         trim: true,
-        maxLength: 100,
     },
     longDescription: {
         type: String,
         trim: true,
-        maxLength: 500,
     },
     likes: [
         {
